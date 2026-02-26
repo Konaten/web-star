@@ -1,0 +1,80 @@
+---
+const scheduleData = [
+  {
+    day: "Lundi",
+    time: "18h30 - 19h30",
+    course: "Zumba Fitness",
+    price: "210€",
+    color: "text-pink-400"
+  },
+  {
+    day: "Lundi",
+    time: "19h45 - 20h45",
+    course: "Flui'danse",
+    price: "218€",
+    color: "text-blue-400"
+  },
+  {
+    day: "Mercredi",
+    time: "17h15 - 18h15",
+    course: "Zumba Kids (7 à 16 ans)",
+    price: "200€",
+    color: "text-orange-400"
+  },
+  {
+    day: "Mercredi",
+    time: "18h30 - 19h30",
+    course: "Pilates",
+    price: "220€",
+    color: "text-teal-400"
+  }
+];
+---
+
+<section id="tarifs" class="py-20 bg-slate-900/50 border-y border-white/5">
+    <div class="container mx-auto px-6 max-w-5xl">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-black mb-4">Horaires & Tarifs</h2>
+            <p class="text-slate-400 text-lg">
+                Saison 2025/2026. Les tarifs s'entendent pour une année complète de 31 séances.
+            </p>
+        </div>
+
+        <div class="bg-slate-800/50 border border-slate-700 rounded-2xl overflow-hidden shadow-xl">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-800 border-b border-slate-700">
+                            <th class="py-4 px-6 text-slate-300 font-semibold uppercase tracking-wider">Jour</th>
+                            <th class="py-4 px-6 text-slate-300 font-semibold uppercase tracking-wider">Horaire</th>
+                            <th class="py-4 px-6 text-slate-300 font-semibold uppercase tracking-wider">Discipline</th>
+                            <th class="py-4 px-6 text-slate-300 font-semibold uppercase tracking-wider text-right">Tarif Annuel</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-700/50">
+                        {scheduleData.map((row) => (
+                            <tr class="hover:bg-slate-700/30 transition-colors">
+                                <td class="py-4 px-6 font-medium text-slate-200">{row.day}</td>
+                                <td class="py-4 px-6 text-slate-300">{row.time}</td>
+                                <td class={`py-4 px-6 font-bold ${row.color}`}>{row.course}</td>
+                                <td class="py-4 px-6 text-right font-bold text-white">{row.price}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="bg-slate-800 p-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-300">
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                    </svg>
+                    <span><strong>Offres :</strong> -10% pour une 2ème activité OU -10% pour parrainage (offres non cumulables).</span>
+                </div>
+                <div>
+                    Possibilité de régler en 3x par chèque.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

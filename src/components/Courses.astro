@@ -1,0 +1,69 @@
+---
+import CourseImage3D from './CourseImage3D';
+
+const courses = [
+  {
+    title: "Zumba Fitness",
+    theme: "text-pink-400",
+    description: "Activité pluridisciplinaire, permet de gagner en cardio, agilité, en coordination , en souplesse, améliore la posture. Activité accessible à tous et toutes. La Zumba Fitness est un cours dansé sur toutes les musiques du monde. Les chorégraphies alternent les rythmes et l'intensité.",
+    imageUrls: [
+        "/images/zumba_adulte_1.jpg",
+        "/images/zumba_adulte_2.jpg",
+        "/images/zumba_adulte_3.jpg",
+        "/images/zumba_adulte_4.jpg"
+    ]
+  },
+  {
+    title: "Zumba Kids",
+    theme: "text-orange-400",
+    description: "Des routines pensées pour les enfants avec les musiques qu'ils aiment. Parfait pour développer la coordination, l'apprentissage des danses. Développe la confiance en soi tout en s'amusant.",
+    imageUrls: [
+        "/images/zumba_kids_1.jpg",
+        "/images/zumba_kids_2.jpg",
+        "/images/zumba_kids_3.jpg"
+    ]
+  },
+  {
+    title: "Fluid'Danse",
+    theme: "text-blue-400",
+    description: "Une discipline mêlant grâce, fluidité, stretching dynamique et renforcement postural. Libérez vos mouvements et améliorez votre souplesse en douceur.Particulièrement conseillé pour développer l'amplitude articulaire dans la douceur et bienveillance",
+    imageUrls: [
+        "/images/fluidanse_1.jpg",
+        "/images/fluidanse_2.jpg",
+        "/images/fluidanse_3.jpg",
+        "/images/fluidanse_4.jpg"
+    ]
+  },
+  {
+    title: "Pilates",
+    theme: "text-teal-400",
+    description: "Renforcez vos muscles profonds, améliorez votre posture et trouvez l'équilibre corps-esprit avec cette méthode douce mais redoutablement efficace.",
+    imageUrls: [
+        "/images/pilates_1.jpg",
+        "/images/pilates_2.jpg",
+        "/images/pilates_3.jpg",
+        "/images/pilates_4.jpg"
+    ]
+  }
+];
+---
+
+<section id="cours" class="pt-24 pb-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {courses.map((course) => (
+            <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 hover:bg-slate-800 transition-colors group">
+                
+                <div class="w-full h-64 rounded-xl mb-6 relative overflow-hidden">
+                    <CourseImage3D client:visible imageUrls={course.imageUrls} />
+                </div>
+                
+                <h3 class={`text-2xl font-bold mb-3 ${course.theme}`}>
+                    {course.title}
+                </h3>
+                <p class="text-slate-300 leading-relaxed">
+                    {course.description}
+                </p>
+            </div>
+        ))}
+    </div>
+</section>

@@ -1,9 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import DanceScene from '../components/DanceScene';
+import Courses from '../components/Courses.astro';
+import Schedule from '../components/Schedule.astro';
+import Contact from '../components/Contact.astro';
 ---
 
-<Layout title="Star Danse - Rythme & Élégance">
+<Layout title="STAR">
     
     <section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
         
@@ -11,11 +14,16 @@ import DanceScene from '../components/DanceScene';
 
         <div class="relative z-10 text-center px-4 bg-slate-900/30 backdrop-blur-sm p-10 rounded-xl border border-white/10">
             <h1 class="text-6xl md:text-8xl font-black mb-4 tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-blue-500 drop-shadow-lg">
-                STAR DANSE
+                STAR
             </h1>
-            <p class="text-xl md:text-2xl font-light text-slate-200 mb-8 max-w-2xl mx-auto">
+            
+            <p class="text-xl md:text-2xl font-light text-slate-200 mb-4 max-w-2xl mx-auto">
                 L'énergie de la <span class="font-bold text-pink-400">Zumba</span>. 
-                La grâce du <span class="font-bold text-blue-400">Port de Bras</span>.
+                La grâce du <span class="font-bold text-blue-400">Flui'Danse</span>.
+            </p>
+
+            <p class="text-sm md:text-base font-medium text-slate-300 mb-8 tracking-widest uppercase">
+                Zumba Fitness • Zumba Kid • Flui'Danse • Pilates
             </p>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -30,6 +38,11 @@ import DanceScene from '../components/DanceScene';
     </section>
 
     <main class="container mx-auto px-6 py-20">
-        </main>
+        <Courses />
+    </main>
+
+    <Schedule />
+
+    <Contact />
 
 </Layout>
