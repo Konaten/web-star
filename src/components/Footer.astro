@@ -47,7 +47,11 @@ const currentYear = new Date().getFullYear();
 
         <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500">
             <p>&copy; {currentYear} Association S.T.A.R. Tous droits réservés.</p>
-            <div class="flex gap-4 mt-4 md:mt-0">
+            <div class="flex flex-wrap gap-4 mt-4 md:mt-0 justify-center">
+                <a href="/mentions-legales" class="hover:text-white transition-colors">Mentions légales</a>
+                
+                <span class="hidden md:inline text-slate-700">|</span>
+                
                 <a href="/documents/reglement-interieur.pdf" target="_blank" class="hover:text-white transition-colors">Règlement intérieur</a>
                 <a href="/documents/decharge-responsabilite.pdf" target="_blank" class="hover:text-white transition-colors">Décharge de responsabilité</a>
             </div>
