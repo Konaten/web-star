@@ -27,8 +27,8 @@
                 </a>
             </nav>
 
-            <button id="mobile-menu-btn" class="md:hidden z-50 text-slate-300 hover:text-white p-2 rounded-lg hover:bg-white/5 transition-colors cursor-pointer">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <button id="mobile-menu-btn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden z-50 text-slate-300 hover:text-white p-2 rounded-lg hover:bg-white/5 transition-colors cursor-pointer">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
             </button>
@@ -55,12 +55,16 @@
             btn.addEventListener('click', () => {
                 menu.classList.toggle('hidden');
                 menu.classList.toggle('flex');
+                
+                const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+                btn.setAttribute('aria-expanded', String(!isExpanded));
             });
 
             links.forEach(link => {
                 link.addEventListener('click', () => {
                     menu.classList.add('hidden');
                     menu.classList.remove('flex');
+                    btn.setAttribute('aria-expanded', 'false');
                 });
             });
         }
