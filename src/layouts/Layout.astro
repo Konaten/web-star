@@ -5,20 +5,43 @@ import Footer from '../components/Footer.astro';
 
 interface Props {
 	title: string;
+	description?: string;
+	image?: string;
 }
 
-const { title } = Astro.props;
+const { 
+	title, 
+	description = "Association S.T.A.R (Self transcendence and relaxation). Cours de danse et de bien-être à Villeurbanne : Zumba Fitness, Zumba Kids, Fluid'Danse et Pilates.",
+	image = "/LOGO_STAR.jpg"
+} = Astro.props;
+
+const siteUrl = "https://associationstar.fr"; 
 ---
 
 <!doctype html>
 <html lang="fr">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Association de danse et fitness à Villeurbanne" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/jpeg" href="/LOGO_STAR.jpg" />
 		<meta name="generator" content={Astro.generator} />
+		
 		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="keywords" content="danse, zumba, pilates, fluid'danse, villeurbanne, association sportive, bien-être, fitness" />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={siteUrl} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={image} />
+		<meta property="og:site_name" content="Association S.T.A.R" />
+
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={siteUrl} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={image} />
 	</head>
 	<body class="bg-slate-900 text-white overflow-x-hidden flex flex-col min-h-screen">
         
@@ -34,25 +57,25 @@ const { title } = Astro.props;
             document.addEventListener('DOMContentLoaded', () => {
                 const anchorLinks = document.querySelectorAll('a[href^="#"]');
                 
-                anchorLinks.forEach(link => {
-                    link.addEventListener('click', function(this: HTMLAnchorElement, e) {
-                        const targetId = this.getAttribute('href');
-                        
-                        if (!targetId || targetId === '#') {
-                            e.preventDefault();
-                            window.scrollTo({ top: 0, behavior: 'smooth' });
-                            return;
-                        }
-                        
-                        const targetElement = document.querySelector(targetId);
+				anchorLinks.forEach(link => {
+					link.addEventListener('click', function(this: HTMLAnchorElement, e) {
+						const targetId = this.getAttribute('href');
+						
+						if (!targetId || targetId === '#') {
+							e.preventDefault();
+							window.scrollTo({ top: 0, behavior: 'smooth' });
+							return;
+						}
+						
+						const targetElement = document.querySelector(targetId);
                         
                         if (targetElement) {
                             e.preventDefault();
-                            
+							
                             const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
                             const offset = 20;
                             const offsetPosition = elementPosition - offset;
-							
+                            
                             window.scrollTo({
                                 top: offsetPosition,
                                 behavior: 'smooth'
