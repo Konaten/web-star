@@ -30,6 +30,39 @@ const { title } = Astro.props;
         
         <Footer />
         
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const anchorLinks = document.querySelectorAll('a[href^="#"]');
+                
+                anchorLinks.forEach(link => {
+                    link.addEventListener('click', function(this: HTMLAnchorElement, e) {
+                        const targetId = this.getAttribute('href');
+                        
+                        if (!targetId || targetId === '#') {
+                            e.preventDefault();
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                            return;
+                        }
+                        
+                        const targetElement = document.querySelector(targetId);
+                        
+                        if (targetElement) {
+                            e.preventDefault();
+                            
+                            const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                            const offset = 20;
+                            const offsetPosition = elementPosition - offset;
+							
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });
+            });
+        </script>
+        
 	</body>
 </html>
 
